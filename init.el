@@ -16,13 +16,8 @@
 (setq make-backup-files nil)
 (setq auto-save-default nil)
 
-;; stole this from reddit (u/wojtek-graj)
-(when (window-system)
-  (cond
-   ((x-list-fonts "Jetbrains Mono")
-    (set-frame-font "Jetbrains Mono-10" nil t))
-   )
-)
+(add-to-list 'default-frame-alist
+	     '(font . "Jetbrains Mono-10"))
 
 (use-package magit
   :ensure t

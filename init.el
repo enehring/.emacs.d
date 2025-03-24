@@ -1,31 +1,28 @@
 ;; for personal use only
 
-(setq custom-file "~/.emacs.d/custom.el")
+(setq use-package-always-ensure t)
+(setq use-package-always-defer t)
+
+(use-package modus-themes)
+
+(use-package magit)
+
+(setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 (load custom-file)
 
-(column-number-mode)
-(global-display-line-numbers-mode)
-(menu-bar--display-line-numbers-mode-relative)
-(tool-bar-mode -1)
-(menu-bar-mode -1)
-(scroll-bar-mode -1)
-(global-hl-line-mode)
-(setq inhibit-startup-screen 1)
+(customize-set-variable 'custom-enabled-themes '(modus-operandi-tinted))
+(customize-set-variable 'menu-bar-mode nil)
+(customize-set-variable 'tool-bar-mode nil)
+(customize-set-variable 'scroll-bar-mode nil)
+(customize-set-variable 'column-number-mode t)
+(customize-set-variable 'global-display-line-number-mode t)
+(customize-set-variable 'display-line-numbers 'relative)
+(customize-set-variable 'global-hl-line-mode t)
+(customize-set-variable 'inhibit-splash-screen t)
 
 ;; TODO maybe save these to .emacs.d/ instead?
-(setq make-backup-files nil)
-(setq auto-save-default nil)
+(customize-set-variable 'make-backup-files nil)
+(customize-set-variable 'auto-save-default nil)
 
 (add-to-list 'default-frame-alist
 	     '(font . "Jetbrains Mono-10"))
-
-(use-package modus-themes
-  :ensure t
-  :defer t)
-
-(load-theme 'modus-operandi-tinted :no-confirm)
-
-(use-package magit
-  :ensure t
-  :defer t)
-

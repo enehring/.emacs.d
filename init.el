@@ -1,6 +1,6 @@
 ;; for personal use only
 
-(setq custom-file "./custom.el")
+(setq custom-file "~/.emacs.d/custom.el")
 (load custom-file)
 
 (column-number-mode)
@@ -19,12 +19,13 @@
 (add-to-list 'default-frame-alist
 	     '(font . "Jetbrains Mono-10"))
 
+(use-package modus-themes
+  :ensure t
+  :defer t)
+
+(load-theme 'modus-operandi-tinted :no-confirm)
+
 (use-package magit
   :ensure t
   :defer t)
 
-(use-package ef-themes
-  :ensure t
-  :defer t)
-
-(load-theme 'ef-melissa-light :no-confirm)

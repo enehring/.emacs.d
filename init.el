@@ -6,12 +6,12 @@
 (customize-set-variable 'column-number-mode t)
 (customize-set-variable 'display-line-numbers 'relative)
 (customize-set-variable 'global-hl-line-mode t)
+(customize-set-variable 'global-word-wrap-whitespace-mode t)
 (customize-set-variable 'inhibit-splash-screen t)
 
 ;; TODO maybe save these to .emacs.d/ instead?
 (customize-set-variable 'make-backup-files nil)
 (customize-set-variable 'auto-save-default nil)
-
 
 (add-to-list 'default-frame-alist
 	     '(font . "Jetbrains Mono-10"))

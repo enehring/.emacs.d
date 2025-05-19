@@ -47,4 +47,13 @@
 (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
 
+;; Eshell
 
+;; clear the eshell screen
+(add-hook 'eshell-mode-hook
+	  '(lambda ()
+	     (local-set-key (kbd "C-c c")
+			    '(lambda ()
+			       (interactive)
+			       (eshell/clear 1)
+			       (eshell-emit-prompt)))))

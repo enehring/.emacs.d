@@ -1,7 +1,7 @@
 ;; for personal use only
 
 ;; not saving any screen real estate by hiding the menu bar on mac
-(unless (eq system-type 'darwin)
+(unless (and (eq system-type 'darwin) (display-graphic-p))
   (customize-set-variable 'menu-bar-mode nil))
 (customize-set-variable 'tool-bar-mode nil)
 (customize-set-variable 'scroll-bar-mode nil)
@@ -23,7 +23,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(package-selected-packages '(modus-themes magit)))
+ '(package-selected-packages '(magit modus-themes web-mode)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -35,5 +35,16 @@
   (package-refresh-contents)
   (package-install-selected-packages))
 
-(load-theme 'modus-operandi-tinted :no-confirm)
+(if (display-graphic-p)
+    (load-theme 'modus-operandi-tinted :no-confirm))
+
+;; config from web-mode.org
+(add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.[agj]sp\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.as[cp]x\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
+
 

@@ -1,6 +1,8 @@
 ;; for personal use only
 
-(customize-set-variable 'menu-bar-mode nil)
+;; not saving any screen real estate by hiding the menu bar on mac
+(unless (eq system-type 'darwin)
+  (customize-set-variable 'menu-bar-mode nil))
 (customize-set-variable 'tool-bar-mode nil)
 (customize-set-variable 'scroll-bar-mode nil)
 (customize-set-variable 'column-number-mode t)

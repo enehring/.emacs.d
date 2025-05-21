@@ -1,5 +1,6 @@
 ;; for personal use only
 
+;;; Appearance
 ;; not saving any screen real estate by hiding the menu bar on mac
 (unless (and (eq system-type 'darwin) (display-graphic-p))
   (customize-set-variable 'menu-bar-mode nil))
@@ -38,7 +39,7 @@
 (if (display-graphic-p)
     (load-theme 'modus-operandi-tinted :no-confirm))
 
-;; config from web-mode.org
+;;; web-mode
 (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.[agj]sp\\'" . web-mode))
@@ -48,8 +49,10 @@
 (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.cshtml\\'" . web-mode))
 
-;; Eshell
+(setq web-mode-engines-alist
+      '(("razor" . "\\.cshtml\\'")))
 
+;;; eshell
 ;; clear the eshell screen
 (add-hook 'eshell-mode-hook
 	  '(lambda ()

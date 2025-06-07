@@ -7,10 +7,12 @@
 (customize-set-variable 'tool-bar-mode nil)
 (customize-set-variable 'scroll-bar-mode nil)
 (customize-set-variable 'column-number-mode t)
-(customize-set-variable 'display-line-numbers 'relative)
+(customize-set-variable 'display-line-numbers t)
 (customize-set-variable 'global-hl-line-mode t)
 (customize-set-variable 'global-word-wrap-whitespace-mode t)
 (customize-set-variable 'inhibit-splash-screen t)
+(customize-set-variable 'save-place-mode t)
+(customize-set-variable 'global-auto-revert-non-file-buffers t)
 
 ;; TODO maybe save these to .emacs.d/ instead?
 (customize-set-variable 'make-backup-files nil)

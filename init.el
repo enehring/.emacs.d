@@ -1,6 +1,7 @@
 ;; for personal use only
 
-;;; Appearance
+;;; Base Emacs configuration (does not depend on any packages)
+
 ;; not saving any screen real estate by hiding the menu bar on mac
 (unless (and (eq system-type 'darwin) (display-graphic-p))
   (customize-set-variable 'menu-bar-mode nil))
@@ -13,11 +14,11 @@
 (customize-set-variable 'inhibit-splash-screen t)
 (customize-set-variable 'save-place-mode t)
 (customize-set-variable 'global-auto-revert-non-file-buffers t)
-
 ;; TODO maybe save these to .emacs.d/ instead?
 (customize-set-variable 'make-backup-files nil)
 (customize-set-variable 'auto-save-default nil)
 
+;;; Font
 (add-to-list 'default-frame-alist
 	     '(font . "Jetbrains Mono-10"))
 
@@ -38,8 +39,11 @@
   (package-refresh-contents)
   (package-install-selected-packages))
 
+;;; Theme
 (if (display-graphic-p)
     (load-theme 'modus-operandi-tinted :no-confirm))
+
+;;; Package configuration
 
 ;;; web-mode
 (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
@@ -50,7 +54,6 @@
 (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.cshtml\\'" . web-mode))
-
 (setq web-mode-engines-alist
       '(("razor" . "\\.cshtml\\'")))
 

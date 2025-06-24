@@ -39,11 +39,12 @@
   (package-refresh-contents)
   (package-install-selected-packages))
 
-;;; Theme
-(if (display-graphic-p)
-    (load-theme 'modus-operandi-tinted :no-confirm))
-
 ;;; Package configuration
+
+;;; modus-themes
+(customize-set-variable
+ 'modus-themes-to-toggle
+ '(modus-operandi-tinted modus-vivendi-tinted))
 
 ;;; web-mode
 (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
@@ -66,3 +67,7 @@
 			       (interactive)
 			       (eshell/clear 1)
 			       (eshell-emit-prompt)))))
+
+;;; Theme
+(if (display-graphic-p)
+    (load-theme 'modus-operandi-tinted :no-confirm))

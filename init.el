@@ -58,6 +58,13 @@
 (setq web-mode-engines-alist
       '(("razor" . "\\.cshtml\\'")))
 
+
+;;; csharp-mode
+(add-hook 'csharp-mode-hook
+	  '(lambda ()
+	     (setq indent-tabs-mode nil)
+	     (electric-pair-local-mode 1)))
+
 ;;; eshell
 ;; clear the eshell screen
 (add-hook 'eshell-mode-hook

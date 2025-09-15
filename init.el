@@ -5,6 +5,8 @@
 ;; not saving any screen real estate by hiding the menu bar on mac
 (unless (and (eq system-type 'darwin) (display-graphic-p))
   (customize-set-variable 'menu-bar-mode nil))
+(if (and (eq system-type 'darwin) (display-graphic-p))
+    (global-set-key (kbd "<S-s-up>") 'toggle-frame-maximized))
 (customize-set-variable 'tool-bar-mode nil)
 (customize-set-variable 'scroll-bar-mode nil)
 (customize-set-variable 'column-number-mode t)
@@ -17,6 +19,12 @@
 ;; TODO maybe save these to .emacs.d/ instead?
 (customize-set-variable 'make-backup-files nil)
 (customize-set-variable 'auto-save-default nil)
+(customize-set-variable 'c-default-style
+			'((c-mode . "linux")
+			  (java-mode . "java")
+			  (awk-mode . "awk")
+			  (other . "gnu")))
+			  
 
 ;;; Font
 (add-to-list 'default-frame-alist
@@ -77,4 +85,4 @@
 
 ;;; Theme
 (if (display-graphic-p)
-    (load-theme 'modus-operandi-tinted :no-confirm))
+    (load-theme 'edn :no-confirm))

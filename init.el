@@ -10,7 +10,6 @@
 (customize-set-variable 'tool-bar-mode nil)
 (customize-set-variable 'scroll-bar-mode nil)
 (customize-set-variable 'column-number-mode t)
-(customize-set-variable 'display-line-numbers t)
 (customize-set-variable 'global-hl-line-mode t)
 (customize-set-variable 'global-word-wrap-whitespace-mode t)
 (customize-set-variable 'inhibit-splash-screen t)
@@ -24,7 +23,6 @@
 			  (java-mode . "java")
 			  (awk-mode . "awk")
 			  (other . "gnu")))
-			  
 
 ;;; Font
 (add-to-list 'default-frame-alist
@@ -65,7 +63,6 @@
 (add-to-list 'auto-mode-alist '("\\.cshtml\\'" . web-mode))
 (setq web-mode-engines-alist
       '(("razor" . "\\.cshtml\\'")))
-
 
 ;;; csharp-mode
 (add-hook 'csharp-mode-hook

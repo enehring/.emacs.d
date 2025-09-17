@@ -55,6 +55,11 @@
 (setq web-mode-engines-alist
       '(("razor" . "\\.cshtml\\'")))
 
+;; ;;; c-mode
+(add-hook 'c-mode-hook
+	  '(lambda ()
+	     (electric-pair-local-mode 1)))
+
 ;;; csharp-mode
 (add-hook 'csharp-mode-hook
 	  '(lambda ()
@@ -74,7 +79,8 @@
 ;;; OS-specific config
 
 (cond
- ((string-equal system-type "windows-nt"))
+ ((string-equal system-type "windows-nt")
+  (load-theme 'edn :no-confirm))
  ((string-equal system-type "darwin")
   ;; Mac config
   (if (not (display-graphic-p))
@@ -86,4 +92,6 @@
     (load-theme 'edn :no-confirm)
     (global-set-key (kbd "<S-s-up>") 'toggle-frame-maximized)))
  
- ((string-equal system-type "gnu/linux")))
+ ((string-equal system-type "gnu/linux")
+  (if (display-graphic-p)
+      (load-theme 'edn :noconfirm))))

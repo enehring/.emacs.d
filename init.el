@@ -79,9 +79,7 @@
 ;;; OS-specific config
 
 (cond
- ((string-equal system-type "windows-nt")
-  ;; TODO - Windows config
-  )
+ ((string-equal system-type "windows-nt"))
  ((string-equal system-type "darwin")
   ;; Mac config
   (if (not (display-graphic-p))
@@ -93,6 +91,4 @@
     (load-theme 'edn :no-confirm)
     (global-set-key (kbd "<S-s-up>") 'toggle-frame-maximized)))
  
- ((string-equal system-type "gnu/linux"))
- ;; TODO - Linux config
- )
+ ((string-equal system-type "gnu/linux")))

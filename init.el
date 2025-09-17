@@ -1,12 +1,8 @@
 ;; for personal use only
 
-;;; Base Emacs configuration (does not depend on any packages)
+;;; Base Emacs configuration (does not depend on any packages or OS)
 
-;; not saving any screen real estate by hiding the menu bar on mac
-(unless (and (eq system-type 'darwin) (display-graphic-p))
-  (customize-set-variable 'menu-bar-mode nil))
-(if (and (eq system-type 'darwin) (display-graphic-p))
-    (global-set-key (kbd "<S-s-up>") 'toggle-frame-maximized))
+(customize-set-variable 'menu-bar-mode nil)
 (customize-set-variable 'tool-bar-mode nil)
 (customize-set-variable 'scroll-bar-mode nil)
 (customize-set-variable 'column-number-mode t)
@@ -80,6 +76,23 @@
 			       (eshell/clear 1)
 			       (eshell-emit-prompt)))))
 
-;;; Theme
-(if (display-graphic-p)
-    (load-theme 'edn :no-confirm))
+;;; OS-specific config
+
+(cond
+ ((string-equal system-type "windows-nt")
+  ;; TODO - Windows config
+  )
+ ((string-equal system-type "darwin")
+  ;; Mac config
+  (if (not (display-graphic-p))
+      (progn
+	(load-theme 'white :no-confirm))
+    
+    ;; not saving any space on Mac by hiding the menu bar
+    (customize-set-variable 'menu-bar-mode t)
+    (load-theme 'edn :no-confirm)
+    (global-set-key (kbd "<S-s-up>") 'toggle-frame-maximized)))
+ 
+ ((string-equal system-type "gnu/linux"))
+ ;; TODO - Linux config
+ )

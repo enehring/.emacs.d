@@ -19,6 +19,7 @@
 			  (java-mode . "java")
 			  (awk-mode . "awk")
 			  (other . "gnu")))
+(customize-set-variable 'custom-theme-directory "~/.emacs.d/themes/")
 
 ;;; Font
 (add-to-list 'default-frame-alist

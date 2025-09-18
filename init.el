@@ -64,7 +64,7 @@
 (setq web-mode-engines-alist
       '(("razor" . "\\.cshtml\\'")))
 
-;; ;;; c-mode
+;;; c-mode
 (add-hook 'c-mode-hook
 	  '(lambda ()
 	     (electric-pair-local-mode 1)))
@@ -103,4 +103,5 @@
  
  ((string-equal system-type "gnu/linux")
   (if (display-graphic-p)
-      (load-theme 'edn :noconfirm))))
+      (load-theme 'edn :noconfirm)
+    (load-theme 'black :noconfirm))))

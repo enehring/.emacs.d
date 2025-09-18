@@ -2,6 +2,9 @@
 
 ;;; Base Emacs configuration (does not depend on any packages or OS)
 
+;; Prefer the use of customize-set-variable for setting defaults to make
+;; changes visible to Custom. Note that setting variables/modes`directly is
+;; still done when changing settings in hooks, etc.
 (customize-set-variable 'menu-bar-mode nil)
 (customize-set-variable 'tool-bar-mode nil)
 (customize-set-variable 'scroll-bar-mode nil)
@@ -20,6 +23,8 @@
 			  (awk-mode . "awk")
 			  (other . "gnu")))
 (customize-set-variable 'custom-theme-directory "~/.emacs.d/themes/")
+(customize-set-variable 'recentf-mode t)
+(customize-set-variable 'global-auto-revert-mode t)
 
 ;;; Font
 (add-to-list 'default-frame-alist
@@ -38,6 +43,7 @@
  ;; If there is more than one, they won't work right.
  )
 
+;; install selected packages automatically.
 (unless (file-exists-p package-user-dir)
   (package-refresh-contents)
   (package-install-selected-packages))
@@ -68,16 +74,16 @@
 	     (electric-pair-local-mode 1)))
 
 ;;; eshell
-;; clear the eshell screen
 (add-hook 'eshell-mode-hook
 	  '(lambda ()
+	     ;; keybinding to clear the screen
 	     (local-set-key (kbd "C-c c")
 			    '(lambda ()
 			       (interactive)
 			       (eshell/clear 1)
 			       (eshell-emit-prompt)))))
 
-;;; OS-specific config
+;;; OS-specific settings
 
 (cond
  ((string-equal system-type "windows-nt")

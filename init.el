@@ -14,15 +14,17 @@
 (customize-set-variable 'inhibit-splash-screen t)
 (customize-set-variable 'save-place-mode t)
 (customize-set-variable 'global-auto-revert-non-file-buffers t)
-;; TODO maybe save these to .emacs.d/ instead?
-(customize-set-variable 'make-backup-files nil)
-(customize-set-variable 'auto-save-default nil)
+(customize-set-variable 'auto-save-file-name-transforms
+			'(("*", temporary-file-directory t)))
+(customize-set-variable 'backup-directory-alist
+			'(("." . (concat user-emacs-directory "backup/")))
 (customize-set-variable 'c-default-style
 			'((c-mode . "linux")
 			  (java-mode . "java")
 			  (awk-mode . "awk")
 			  (other . "gnu")))
-(customize-set-variable 'custom-theme-directory "~/.emacs.d/themes/")
+(customize-set-variable 'custom-theme-directory
+			(concat user-emacs-directory "themes/"))
 (customize-set-variable 'recentf-mode t)
 (customize-set-variable 'global-auto-revert-mode t)
 

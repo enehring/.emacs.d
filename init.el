@@ -17,7 +17,7 @@
 (customize-set-variable 'auto-save-file-name-transforms
 			'(("*", temporary-file-directory t)))
 (customize-set-variable 'backup-directory-alist
-			'(("." . (concat user-emacs-directory "backup/")))
+			'(("." . (concat user-emacs-directory "backup/"))))
 (customize-set-variable 'c-default-style
 			'((c-mode . "linux")
 			  (java-mode . "java")

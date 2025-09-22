@@ -1,8 +1,8 @@
 ;;; white-theme.el --- Theme
 
-;; Copyright (C) 2025 , 
+;; Copyright (C) 2025 , Evan Nehring
 
-;; Author: 
+;; Author: Evan Nehring
 ;; Version: 0.1
 ;; Package-Requires: ((emacs "24.1"))
 ;; Created with ThemeCreator, https://github.com/mswift42/themecreator.
@@ -23,17 +23,17 @@
 ;; This file is not part of Emacs.
 
 ;;; Commentary:
-;;; white theme created by  in 2025
+;;; white theme created by Evan Nehring in 2025
 
 ;;; Code:
 
 (deftheme white)
 (let ((class '((class color) (min-colors 89)))
-      (fg1 "#303030")
-      (fg2 "#414141")
-      (fg3 "#515151")
-      (fg4 "#626262")
-      (fg6 "#242424")
+      (fg1 "#000000")
+      (fg2 "#141414")
+      (fg3 "#292929")
+      (fg4 "#3d3d3d")
+      (fg6 "#000000")
       (bg1 "#ffffff")
       (bg2 "#ebebeb")
       (bg3 "#d6d6d6")
@@ -43,10 +43,10 @@
       (const   "#000000")
       (comment "#606060")
       (func    "#000000")
-      (str     "#000000")
+      (str     "#008026")
       (type    "#000000")
       (var     "#000000")
-      (selection "#74a7fe")
+      (selection "#8dbaea")
       (warning   "#ff0000")
       (warning2  "#ff8800")
       (unspec   (when (>= emacs-major-version 29) 'unspecified)))

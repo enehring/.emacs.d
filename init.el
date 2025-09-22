@@ -3,8 +3,7 @@
 ;;; Base Emacs configuration (does not depend on any packages or OS)
 
 ;; Prefer the use of customize-set-variable for setting defaults to make
-;; changes visible to Custom. Note that setting variables/modes`directly is
-;; still done when changing settings in hooks, etc.
+;; changes visible to Custom.
 (customize-set-variable 'menu-bar-mode nil)
 (customize-set-variable 'tool-bar-mode nil)
 (customize-set-variable 'scroll-bar-mode nil)

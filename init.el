@@ -78,7 +78,7 @@
 (add-hook 'eshell-mode-hook
 	  (lambda ()
 	    ;; keybinding to clear the screen
-	    (local-set-key (kbd "C-c c")
+	    (local-set-key (kbd "C-c l")
 			   (lambda ()
 			     (interactive)
 			     (eshell/clear 1)
@@ -97,6 +97,7 @@
     
     ;; not saving any space on Mac by hiding the menu bar
     (customize-set-variable 'menu-bar-mode t)
+    (customize-set-variable 'comint-process-echoes t)
     (load-theme 'edn :no-confirm)
     (global-set-key (kbd "<S-s-up>") 'toggle-frame-maximized)))
  

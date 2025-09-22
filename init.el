@@ -65,24 +65,24 @@
 
 ;;; c-mode
 (add-hook 'c-mode-hook
-	  '(lambda ()
-	     (electric-pair-local-mode 1)))
+	  (lambda ()
+	    (electric-pair-local-mode 1)))
 
 ;;; csharp-mode
 (add-hook 'csharp-mode-hook
-	  '(lambda ()
-	     (setq indent-tabs-mode nil)
-	     (electric-pair-local-mode 1)))
+	  (lambda ()
+	    (setq indent-tabs-mode nil)
+	    (electric-pair-local-mode 1)))
 
 ;;; eshell
 (add-hook 'eshell-mode-hook
-	  '(lambda ()
-	     ;; keybinding to clear the screen
-	     (local-set-key (kbd "C-c c")
-			    '(lambda ()
-			       (interactive)
-			       (eshell/clear 1)
-			       (eshell-emit-prompt)))))
+	  (lambda ()
+	    ;; keybinding to clear the screen
+	    (local-set-key (kbd "C-c c")
+			   (lambda ()
+			     (interactive)
+			     (eshell/clear 1)
+			     (eshell-emit-prompt)))))
 
 ;;; OS-specific settings
 

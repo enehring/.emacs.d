@@ -10,7 +10,6 @@
 (customize-set-variable 'column-number-mode t)
 (customize-set-variable 'global-hl-line-mode t)
 (customize-set-variable 'global-word-wrap-whitespace-mode t)
-(customize-set-variable 'inhibit-splash-screen t)
 (customize-set-variable 'save-place-mode t)
 (customize-set-variable 'global-auto-revert-non-file-buffers t)
 (customize-set-variable 'auto-save-file-name-transforms
@@ -24,8 +23,10 @@
 			  (other . "gnu")))
 (customize-set-variable 'custom-theme-directory
 			(concat user-emacs-directory "themes/"))
-(customize-set-variable 'recentf-mode t)
 (customize-set-variable 'global-auto-revert-mode t)
+(customize-set-variable 'recentf-mode t)
+(customize-set-variable 'initial-buffer-choice 'recentf-open-files)
+
 
 ;;; Font
 (add-to-list 'default-frame-alist

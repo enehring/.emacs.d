@@ -64,7 +64,7 @@
    `(font-lock-string-face ((,class (:foreground ,str))))
    `(font-lock-type-face ((,class (:foreground ,type ))))
    `(font-lock-variable-name-face ((,class (:foreground ,var))))
-   `(font-lock-warning-face ((,class (:foreground ,warning :background ,bg2))))
+   `(font-lock-warning-face ((,class (:foreground ,warning))))
    `(term-color-black ((,class (:foreground ,fg2 :background ,unspec))))
    ;; `(region ((,class (:background ,fg1 :foreground ,bg1))))
    `(region ((,class (:background ,selection))))

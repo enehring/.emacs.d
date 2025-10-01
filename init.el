@@ -35,37 +35,7 @@
 (add-to-list 'default-frame-alist
 	     '(font . "Jetbrains Mono-10"))
 
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages '(go-mode magit web-mode)))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
-
-;; install selected packages automatically.
-(unless (file-exists-p package-user-dir)
-  (package-refresh-contents)
-  (package-install-selected-packages))
-
-;;; Package configuration
-
-;;; web-mode
-(add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.[agj]sp\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.as[cp]x\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.cshtml\\'" . web-mode))
-(customize-set-variable 'web-mode-engines-alist
-			'(("razor" . "\\.cshtml\\'")))
+;;; Built-in Mode Configuration
 
 ;;; c-mode
 (add-hook 'c-mode-hook
@@ -87,6 +57,42 @@
 			     (interactive)
 			     (eshell/clear 1)
 			     (eshell-emit-prompt)))))
+
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages '(go-mode magit web-mode)))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
+
+;; install selected packages automatically.
+(unless (file-exists-p package-user-dir)
+  (package-refresh-contents)
+  (package-install-selected-packages))
+
+;;; Package Configuration
+
+;;; magit
+(customize-set-variable 'magit-log-section-commit-count 50)
+
+;;; web-mode
+(add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.[agj]sp\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.as[cp]x\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.cshtml\\'" . web-mode))
+(customize-set-variable 'web-mode-engines-alist
+			'(("razor" . "\\.cshtml\\'")))
+
 
 (cond
  ((string-equal system-type "windows-nt")

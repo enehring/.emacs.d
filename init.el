@@ -26,6 +26,7 @@
 (customize-set-variable 'global-auto-revert-mode t)
 (customize-set-variable 'recentf-mode t)
 (customize-set-variable 'initial-buffer-choice 'recentf-open-files)
+(customize-set-variable 'help-window-select t)
 
 
 ;;; Font
@@ -61,8 +62,8 @@
 (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.cshtml\\'" . web-mode))
-(setq web-mode-engines-alist
-      '(("razor" . "\\.cshtml\\'")))
+(customize-set-variable 'web-mode-engines-alist
+			'(("razor" . "\\.cshtml\\'")))
 
 ;;; c-mode
 (add-hook 'c-mode-hook
@@ -85,13 +86,12 @@
 			     (eshell/clear 1)
 			     (eshell-emit-prompt)))))
 
-;;; OS-specific settings
-
 (cond
  ((string-equal system-type "windows-nt")
+  ;;; Windows-specific Configuration
   (load-theme 'edn :no-confirm))
  ((string-equal system-type "darwin")
-  ;; Mac config
+  ;;; MacOS-specific Configuration
   (if (not (display-graphic-p))
       (progn
 	(load-theme 'white :no-confirm))
@@ -101,8 +101,8 @@
     (customize-set-variable 'comint-process-echoes t)
     (load-theme 'edn :no-confirm)
     (global-set-key (kbd "<S-s-up>") 'toggle-frame-maximized)))
- 
  ((string-equal system-type "gnu/linux")
+  ;;; Linux-specific Configuration
   (if (display-graphic-p)
       (load-theme 'edn :noconfirm)
     (load-theme 'black :noconfirm))))

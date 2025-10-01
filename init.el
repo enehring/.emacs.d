@@ -1,3 +1,5 @@
+;; -*- lexical-binding: t; -*-
+
 ;; for personal use only
 
 ;;; Base Emacs configuration (does not depend on any packages or OS)

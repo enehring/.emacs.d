@@ -1,3 +1,5 @@
+;; -*- lexical-binding: t; -*-
+
 ;;; white-theme.el --- Theme
 
 ;; Copyright (C) 2025 , Evan Nehring
@@ -53,37 +55,44 @@
   (custom-theme-set-faces
    'white
    `(default ((,class (:background ,bg1 :foreground ,fg1))))
+
    `(font-lock-builtin-face ((,class (:foreground ,builtin))))
    `(font-lock-comment-face ((,class (:foreground ,comment))))
-	 `(font-lock-negation-char-face ((,class (:foreground ,const))))
-	 `(font-lock-reference-face ((,class (:foreground ,const))))
-	 `(font-lock-constant-face ((,class (:foreground ,const))))
+   `(font-lock-negation-char-face ((,class (:foreground ,const))))
+   `(font-lock-reference-face ((,class (:foreground ,const))))
+   `(font-lock-constant-face ((,class (:foreground ,const))))
    `(font-lock-doc-face ((,class (:foreground ,comment))))
    `(font-lock-function-name-face ((,class (:foreground ,func ))))
    `(font-lock-keyword-face ((,class (:bold ,class :foreground ,keyword))))
    `(font-lock-string-face ((,class (:foreground ,str))))
    `(font-lock-type-face ((,class (:foreground ,type ))))
    `(font-lock-variable-name-face ((,class (:foreground ,var))))
-   `(font-lock-warning-face ((,class (:foreground ,warning :background ,bg2))))
+   `(font-lock-warning-face ((,class (:foreground ,warning))))
+
    `(term-color-black ((,class (:foreground ,fg2 :background ,unspec))))
-   ;; `(region ((,class (:background ,fg1 :foreground ,bg1))))
+
    `(region ((,class (:background ,selection))))
    `(highlight ((,class (:foreground ,fg3 :background ,bg3))))
-	 `(hl-line ((,class (:background  ,bg2))))
-	 `(fringe ((,class (:background ,bg2 :foreground ,fg4))))
-	 `(cursor ((,class (:background ,fg4))))
+   `(hl-line ((,class (:background  ,bg2))))
+   `(fringe ((,class (:background ,bg2 :foreground ,fg4))))
+   `(cursor ((,class (:background ,fg4))))
    `(isearch ((,class (:bold t :foreground ,warning :background ,bg3))))
+
    `(mode-line ((,class (:box (:line-width 1 :color nil) :bold t :foreground ,fg4 :background ,bg2))))
-   `(mode-line-inactive ((,class (:box (:line-width 1 :color nil :style pressed-button) :foreground ,var :background ,bg1 :weight normal))))
+   `(mode-line-inactive ((,class (:box
+				  (:line-width 1 :color nil :style pressed-button)
+				  :foreground ,var :background ,bg1 :weight normal))))
    `(mode-line-buffer-id ((,class (:bold t :foreground ,func :background ,unspec))))
-	 `(mode-line-highlight ((,class (:foreground ,keyword :box nil :weight bold))))
+   `(mode-line-highlight ((,class (:foreground ,keyword :box nil :weight bold))))
    `(mode-line-emphasis ((,class (:foreground ,fg1))))
-	 `(vertical-border ((,class (:foreground ,fg3))))
+
+   `(vertical-border ((,class (:foreground ,fg3))))
    `(minibuffer-prompt ((,class (:bold t :foreground ,keyword))))
    `(default-italic ((,class (:italic t))))
-	 `(link ((,class (:foreground ,const :underline t))))
-	 `(org-code ((,class (:foreground ,fg2))))
-	 `(org-hide ((,class (:foreground ,fg4))))
+   `(link ((,class (:foreground ,const :underline t))))
+
+   `(org-code ((,class (:foreground ,fg2))))
+   `(org-hide ((,class (:foreground ,fg4))))
    `(org-level-1 ((,class (:bold t :foreground ,fg2 :height 1.1))))
    `(org-level-2 ((,class (:bold nil :foreground ,fg3))))
    `(org-level-3 ((,class (:bold t :foreground ,fg4))))
@@ -103,33 +112,40 @@
    `(org-agenda-date-weekend ((,class (:weight normal :foreground ,fg4))))
    `(org-agenda-date-today ((,class (:weight bold :foreground ,keyword :height 1.4))))
    `(org-agenda-done ((,class (:foreground ,bg4))))
-	 `(org-scheduled ((,class (:foreground ,type))))
+   `(org-scheduled ((,class (:foreground ,type))))
    `(org-scheduled-today ((,class (:foreground ,func :weight bold :height 1.2))))
-	 `(org-ellipsis ((,class (:foreground ,builtin))))
-	 `(org-verbatim ((,class (:foreground ,fg4))))
+   `(org-ellipsis ((,class (:foreground ,builtin))))
+   `(org-verbatim ((,class (:foreground ,fg4))))
    `(org-document-info-keyword ((,class (:foreground ,func))))
-	 `(font-latex-bold-face ((,class (:foreground ,type))))
-	 `(font-latex-italic-face ((,class (:foreground ,var :italic t))))
-	 `(font-latex-string-face ((,class (:foreground ,str))))
-	 `(font-latex-match-reference-keywords ((,class (:foreground ,const))))
-	 `(font-latex-match-variable-keywords ((,class (:foreground ,var))))
-	 `(ido-only-match ((,class (:foreground ,warning))))
-	 `(org-sexp-date ((,class (:foreground ,fg4))))
-	 `(ido-first-match ((,class (:foreground ,keyword :bold t))))
+   `(org-sexp-date ((,class (:foreground ,fg4))))
+
+   `(font-latex-bold-face ((,class (:foreground ,type))))
+   `(font-latex-italic-face ((,class (:foreground ,var :italic t))))
+   `(font-latex-string-face ((,class (:foreground ,str))))
+   `(font-latex-match-reference-keywords ((,class (:foreground ,const))))
+   `(font-latex-match-variable-keywords ((,class (:foreground ,var))))
+
+   `(ido-only-match ((,class (:foreground ,warning))))
+   `(ido-first-match ((,class (:foreground ,keyword :bold t))))
+   
    `(ivy-current-match ((,class (:foreground ,fg3 :inherit highlight :underline t))))
-	 `(gnus-header-content ((,class (:foreground ,keyword))))
-	 `(gnus-header-from ((,class (:foreground ,var))))
-	 `(gnus-header-name ((,class (:foreground ,type))))
-	 `(gnus-header-subject ((,class (:foreground ,func :bold t))))
-	 `(mu4e-view-url-number-face ((,class (:foreground ,type))))
-	 `(mu4e-cited-1-face ((,class (:foreground ,fg2))))
-	 `(mu4e-cited-7-face ((,class (:foreground ,fg3))))
-	 `(mu4e-header-marks-face ((,class (:foreground ,type))))
-	 `(ffap ((,class (:foreground ,fg4))))
-	 `(js2-private-function-call ((,class (:foreground ,const))))
-	 `(js2-jsdoc-html-tag-delimiter ((,class (:foreground ,str))))
-	 `(js2-jsdoc-html-tag-name ((,class (:foreground ,var))))
-	 `(js2-external-variable ((,class (:foreground ,type  ))))
+
+   `(gnus-header-content ((,class (:foreground ,keyword))))
+   `(gnus-header-from ((,class (:foreground ,var))))
+   `(gnus-header-name ((,class (:foreground ,type))))
+   `(gnus-header-subject ((,class (:foreground ,func :bold t))))
+
+   `(mu4e-view-url-number-face ((,class (:foreground ,type))))
+   `(mu4e-cited-1-face ((,class (:foreground ,fg2))))
+   `(mu4e-cited-7-face ((,class (:foreground ,fg3))))
+   `(mu4e-header-marks-face ((,class (:foreground ,type))))
+
+   `(ffap ((,class (:foreground ,fg4))))
+
+   `(js2-private-function-call ((,class (:foreground ,const))))
+   `(js2-jsdoc-html-tag-delimiter ((,class (:foreground ,str))))
+   `(js2-jsdoc-html-tag-name ((,class (:foreground ,var))))
+   `(js2-external-variable ((,class (:foreground ,type  ))))
    `(js2-function-param ((,class (:foreground ,const))))
    `(js2-jsdoc-value ((,class (:foreground ,str))))
    `(js2-private-member ((,class (:foreground ,fg3))))
@@ -139,17 +155,23 @@
    `(js3-function-param-face ((,class (:foreground ,fg2))))
    `(js3-jsdoc-tag-face ((,class (:foreground ,keyword))))
    `(js3-instance-member-face ((,class (:foreground ,const))))
-	 `(warning ((,class (:foreground ,warning))))
-	 `(ac-completion-face ((,class (:underline t :foreground ,keyword))))
-	 `(info-quoted-name ((,class (:foreground ,builtin))))
-	 `(info-string ((,class (:foreground ,str))))
-	 `(icompletep-determined ((,class :foreground ,builtin)))
+
+   `(warning ((,class (:foreground ,warning))))
+   `(ac-completion-face ((,class (:underline t :foreground ,keyword))))
+   `(info-quoted-name ((,class (:foreground ,builtin))))
+   `(info-string ((,class (:foreground ,str))))
+
+   `(icompletep-determined ((,class :foreground ,builtin)))
+
    `(undo-tree-visualizer-current-face ((,class :foreground ,builtin)))
    `(undo-tree-visualizer-default-face ((,class :foreground ,fg2)))
    `(undo-tree-visualizer-unmodified-face ((,class :foreground ,var)))
    `(undo-tree-visualizer-register-face ((,class :foreground ,type)))
-	 `(slime-repl-inputed-output-face ((,class (:foreground ,type))))
+
+   `(slime-repl-inputed-output-face ((,class (:foreground ,type))))
+
    `(trailing-whitespace ((,class :foreground ,unspec :background ,warning)))
+
    `(rainbow-delimiters-depth-1-face ((,class :foreground ,fg1)))
    `(rainbow-delimiters-depth-2-face ((,class :foreground ,type)))
    `(rainbow-delimiters-depth-3-face ((,class :foreground ,var)))
@@ -158,6 +180,8 @@
    `(rainbow-delimiters-depth-6-face ((,class :foreground ,fg1)))
    `(rainbow-delimiters-depth-7-face ((,class :foreground ,type)))
    `(rainbow-delimiters-depth-8-face ((,class :foreground ,var)))
+   `(rainbow-delimiters-unmatched-face ((,class :foreground ,warning)))
+
    `(magit-item-highlight ((,class :background ,bg3)))
    `(magit-section-heading        ((,class (:foreground ,keyword :weight bold))))
    `(magit-hunk-heading           ((,class (:background ,bg3))))
@@ -172,7 +196,9 @@
    `(magit-log-author ((,class (:foreground ,fg3))))
    `(magit-hash ((,class (:foreground ,fg2))))
    `(magit-diff-file-header ((,class (:foreground ,fg2 :background ,bg3))))
+
    `(lazy-highlight ((,class (:foreground ,fg2 :background ,bg3))))
+
    `(term ((,class (:foreground ,fg1 :background ,bg1))))
    `(term-color-black ((,class (:foreground ,bg3 :background ,bg3))))
    `(term-color-blue ((,class (:foreground ,func :background ,func))))
@@ -182,7 +208,7 @@
    `(term-color-magenta ((,class (:foreground ,builtin :background ,builtin))))
    `(term-color-cyan ((,class (:foreground ,str :background ,str))))
    `(term-color-white ((,class (:foreground ,fg2 :background ,fg2))))
-   `(rainbow-delimiters-unmatched-face ((,class :foreground ,warning)))
+
    `(helm-header ((,class (:foreground ,fg2 :background ,bg1 :underline nil :box nil))))
    `(helm-source-header ((,class (:foreground ,keyword :background ,bg1 :underline nil :weight bold))))
    `(helm-selection ((,class (:background ,bg2 :underline nil))))
@@ -211,6 +237,7 @@
    `(helm-moccur-buffer ((,class (:foreground ,func :background ,bg1))))
    `(helm-source-go-package-godoc-description ((,class (:foreground ,str))))
    `(helm-bookmark-w3m ((,class (:foreground ,type))))
+
    `(company-echo-common ((,class (:foreground ,bg1 :background ,fg1))))
    `(company-preview ((,class (:background ,bg1 :foreground ,var))))
    `(company-preview-common ((,class (:foreground ,bg2 :foreground ,fg3))))
@@ -224,6 +251,7 @@
    `(company-tooltip-mouse ((,class (:inherit highlight))))
    `(company-tooltip-selection ((,class (:background ,bg3 :foreground ,fg3))))
    `(company-template-field ((,class (:inherit region))))
+
    `(web-mode-builtin-face ((,class (:inherit ,font-lock-builtin-face))))
    `(web-mode-comment-face ((,class (:inherit ,font-lock-comment-face))))
    `(web-mode-constant-face ((,class (:inherit ,font-lock-constant-face))))
@@ -234,6 +262,7 @@
    `(web-mode-html-attr-name-face ((,class (:foreground ,func))))
    `(web-mode-warning-face ((,class (:inherit ,font-lock-warning-face))))
    `(web-mode-html-tag-face ((,class (:foreground ,builtin))))
+
    `(jde-java-font-lock-package-face ((t (:foreground ,var))))
    `(jde-java-font-lock-public-face ((t (:foreground ,keyword))))
    `(jde-java-font-lock-private-face ((t (:foreground ,keyword))))
@@ -241,8 +270,10 @@
    `(jde-java-font-lock-modifier-face ((t (:foreground ,fg2))))
    `(jde-jave-font-lock-protected-face ((t (:foreground ,keyword))))
    `(jde-java-font-lock-number-face ((t (:foreground ,var))))
+
    `(yas-field-highlight-face ((t (:background ,selection)))))
-   ;; Legacy
+
+  ;; Legacy
    (if (< emacs-major-version 22)
        (custom-theme-set-faces
         'white

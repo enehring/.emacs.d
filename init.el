@@ -10,7 +10,6 @@
 (customize-set-variable 'tool-bar-mode nil)
 (customize-set-variable 'scroll-bar-mode nil)
 (customize-set-variable 'column-number-mode t)
-(customize-set-variable 'global-hl-line-mode t)
 (customize-set-variable 'global-word-wrap-whitespace-mode t)
 (customize-set-variable 'save-place-mode t)
 (customize-set-variable 'global-auto-revert-non-file-buffers t)

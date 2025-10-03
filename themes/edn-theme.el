@@ -49,8 +49,8 @@
       (type    "#000000")
       (var     "#000000")
       (selection "#b4bcff")
-      (warning   "#ff0000")
-      (warning2  "#38571a")
+      (warning   "#d42525")
+      (warning2  "#00850f")
       (unspec   (when (>= emacs-major-version 29) 'unspecified)))
   (custom-theme-set-faces
    'edn
@@ -67,7 +67,8 @@
    `(font-lock-string-face ((,class (:foreground ,str))))
    `(font-lock-type-face ((,class (:foreground ,type ))))
    `(font-lock-variable-name-face ((,class (:foreground ,var))))
-   `(font-lock-warning-face ((,class (:foreground ,warning))))   
+   `(font-lock-warning-face ((,class (:foreground ,warning))))
+   `(font-lock-preprocessor-face ((,class (:bold t :foreground ,builtin))))
 
    `(term-color-black ((,class (:foreground ,fg2 :background ,unspec))))
 

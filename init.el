@@ -91,6 +91,8 @@
 (add-to-list 'auto-mode-alist '("\\.cshtml\\'" . web-mode))
 (customize-set-variable 'web-mode-engines-alist
 			'(("razor" . "\\.cshtml\\'")))
+(customize-set-variable 'web-mode-extra-keywords
+			'(("razor" . ("model" "using"))))
 
 
 (cond

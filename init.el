@@ -15,8 +15,7 @@
 (customize-set-variable 'global-auto-revert-non-file-buffers t)
 (customize-set-variable 'auto-save-file-name-transforms
 			'(("*", temporary-file-directory t)))
-(customize-set-variable 'backup-directory-alist
-			'(("." . (concat user-emacs-directory "backup/"))))
+(customize-set-variable 'make-backup-files nil)
 (customize-set-variable 'c-default-style
 			'((c-mode . "linux")
 			  (java-mode . "java")

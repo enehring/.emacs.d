@@ -50,7 +50,6 @@
       (var     "#000000")
       (selection "#b4bcff")
       (warning   "#d42525")
-      (warning2  "#00850f")
       (unspec   'unspecified))
   (custom-theme-set-faces
    'edn
@@ -111,7 +110,7 @@
    `(tab-line-tab-inactive ((,class (:background ,bg2 :foreground ,fg4))))
    `(tab-line-tab-current  ((,class (:background ,bg1 :foreground ,fg1))))
    `(tab-line-highlight    ((,class (:background ,bg1 :foreground ,fg2))))
-   `(tab-line-tab-modified ((,class (:foreground ,warning2 :weight bold))))
+   `(tab-line-tab-modified ((,class (:foreground ,warning :weight bold))))
 
    `(org-code ((,class (:foreground ,fg2))))
    `(org-hide ((,class (:foreground ,fg4))))

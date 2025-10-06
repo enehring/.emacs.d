@@ -2,9 +2,9 @@
 
 ;;; black-theme.el --- Theme
 
-;; Copyright (C) 2025 , 
+;; Copyright (C) 2025 , Evan Nehring
 
-;; Author: 
+;; Author: Evan Nehring
 ;; Version: 0.1
 ;; Package-Requires: ((emacs "24.1"))
 ;; Created with ThemeCreator, https://github.com/mswift42/themecreator.
@@ -25,7 +25,7 @@
 ;; This file is not part of Emacs.
 
 ;;; Commentary:
-;;; black theme created by  in 2025
+;;; black theme created by Evan Nehring in 2025
 
 ;;; Code:
 
@@ -51,7 +51,7 @@
       (selection "#000099")
       (warning   "#ff0000")
       (warning2  "#ff8800")
-      (unspec   (when (>= emacs-major-version 29) 'unspecified)))
+      (unspec   'unspecified))
   (custom-theme-set-faces
    'black
    `(default ((,class (:background ,bg1 :foreground ,fg1))))
@@ -69,14 +69,20 @@
    `(font-lock-variable-name-face ((,class (:foreground ,var))))
    `(font-lock-warning-face ((,class (:foreground ,warning ))))
    `(font-lock-preprocessor-face ((,class (:bold t :foreground ,builtin))))
+   `(font-lock-regexp-face ((,class (:inherit font-lock-string-face :underline t))))
 
-   `(term-color-black ((,class (:foreground ,fg2 :background ,unspec))))
+   `(show-paren-match ((,class (:foreground ,bg1 :background ,str))))
+   `(show-paren-mismatch ((,class (:foreground ,bg1 :background ,warning))))
+
    `(region ((,class (:background ,selection))))
    `(highlight ((,class (:foreground ,fg3 :background ,bg3))))
    `(hl-line ((,class (:background  ,bg2))))
    `(fringe ((,class (:background ,bg2 :foreground ,fg4))))
    `(cursor ((,class (:background ,fg4))))
    `(isearch ((,class (:bold t :foreground ,warning :background ,bg3))))
+
+   `(line-number ((t (:inherit fringe))))
+   `(line-number-current-line ((t (:inherit fringe :foreground ,fg6 :weight bold))))
 
    `(mode-line ((,class (:box (:line-width 1 :color nil) :bold t :foreground ,fg4 :background ,bg2))))
    `(mode-line-inactive ((,class (:box
@@ -90,6 +96,13 @@
    `(minibuffer-prompt ((,class (:bold t :foreground ,keyword))))
    `(default-italic ((,class (:italic t))))
    `(link ((,class (:foreground ,const :underline t))))
+
+   `(tab-line              ((,class (:background ,bg2 :foreground ,fg4))))
+   `(tab-line-tab          ((,class (:inherit tab-line))))
+   `(tab-line-tab-inactive ((,class (:background ,bg2 :foreground ,fg4))))
+   `(tab-line-tab-current  ((,class (:background ,bg1 :foreground ,fg1))))
+   `(tab-line-highlight    ((,class (:background ,bg1 :foreground ,fg2))))
+   `(tab-line-tab-modified ((,class (:foreground ,warning2 :weight bold))))
 
    `(org-code ((,class (:foreground ,fg2))))
    `(org-hide ((,class (:foreground ,fg4))))
@@ -119,68 +132,19 @@
    `(org-document-info-keyword ((,class (:foreground ,func))))
    `(org-sexp-date ((,class (:foreground ,fg4))))
 
-   `(font-latex-bold-face ((,class (:foreground ,type))))
-   `(font-latex-italic-face ((,class (:foreground ,var :italic t))))
-   `(font-latex-string-face ((,class (:foreground ,str))))
-   `(font-latex-match-reference-keywords ((,class (:foreground ,const))))
-   `(font-latex-match-variable-keywords ((,class (:foreground ,var))))
-
-   `(ido-only-match ((,class (:foreground ,warning))))
-   `(ido-first-match ((,class (:foreground ,keyword :bold t))))
-   `(ivy-current-match ((,class (:foreground ,fg3 :inherit highlight :underline t))))
-
    `(gnus-header-content ((,class (:foreground ,keyword))))
    `(gnus-header-from ((,class (:foreground ,var))))
    `(gnus-header-name ((,class (:foreground ,type))))
    `(gnus-header-subject ((,class (:foreground ,func :bold t))))
 
-   `(mu4e-view-url-number-face ((,class (:foreground ,type))))
-   `(mu4e-cited-1-face ((,class (:foreground ,fg2))))
-   `(mu4e-cited-7-face ((,class (:foreground ,fg3))))
-   `(mu4e-header-marks-face ((,class (:foreground ,type))))
-
    `(ffap ((,class (:foreground ,fg4))))
-
-   `(js2-private-function-call ((,class (:foreground ,const))))
-   `(js2-jsdoc-html-tag-delimiter ((,class (:foreground ,str))))
-   `(js2-jsdoc-html-tag-name ((,class (:foreground ,var))))
-   `(js2-external-variable ((,class (:foreground ,type  ))))
-   `(js2-function-param ((,class (:foreground ,const))))
-   `(js2-jsdoc-value ((,class (:foreground ,str))))
-   `(js2-private-member ((,class (:foreground ,fg3))))
-   `(js3-warning-face ((,class (:underline ,keyword))))
-   `(js3-error-face ((,class (:underline ,warning))))
-   `(js3-external-variable-face ((,class (:foreground ,var))))
-   `(js3-function-param-face ((,class (:foreground ,fg2))))
-   `(js3-jsdoc-tag-face ((,class (:foreground ,keyword))))
-   `(js3-instance-member-face ((,class (:foreground ,const))))
 
    `(warning ((,class (:foreground ,warning))))
    `(ac-completion-face ((,class (:underline t :foreground ,keyword))))
 
-   `(info-quoted-name ((,class (:foreground ,builtin))))
-   `(info-string ((,class (:foreground ,str))))
-
    `(icompletep-determined ((,class :foreground ,builtin)))
 
-   `(undo-tree-visualizer-current-face ((,class :foreground ,builtin)))
-   `(undo-tree-visualizer-default-face ((,class :foreground ,fg2)))
-   `(undo-tree-visualizer-unmodified-face ((,class :foreground ,var)))
-   `(undo-tree-visualizer-register-face ((,class :foreground ,type)))
-
-   `(slime-repl-inputed-output-face ((,class (:foreground ,type))))
-
    `(trailing-whitespace ((,class :foreground ,unspec :background ,warning)))
-
-   `(rainbow-delimiters-depth-1-face ((,class :foreground ,fg1)))
-   `(rainbow-delimiters-depth-2-face ((,class :foreground ,type)))
-   `(rainbow-delimiters-depth-3-face ((,class :foreground ,var)))
-   `(rainbow-delimiters-depth-4-face ((,class :foreground ,const)))
-   `(rainbow-delimiters-depth-5-face ((,class :foreground ,keyword)))
-   `(rainbow-delimiters-depth-6-face ((,class :foreground ,fg1)))
-   `(rainbow-delimiters-depth-7-face ((,class :foreground ,type)))
-   `(rainbow-delimiters-depth-8-face ((,class :foreground ,var)))
-   `(rainbow-delimiters-unmatched-face ((,class :foreground ,warning)))
 
    `(magit-item-highlight ((,class :background ,bg3)))
    `(magit-section-heading        ((,class (:foreground ,keyword :weight bold))))
@@ -209,116 +173,8 @@
    `(term-color-cyan ((,class (:foreground ,str :background ,str))))
    `(term-color-white ((,class (:foreground ,fg2 :background ,fg2))))
 
-   `(helm-header ((,class (:foreground ,fg2 :background ,bg1 :underline nil :box nil))))
-   `(helm-source-header ((,class (:foreground ,keyword :background ,bg1 :underline nil :weight bold))))
-   `(helm-selection ((,class (:background ,bg2 :underline nil))))
-   `(helm-selection-line ((,class (:background ,bg2))))
-   `(helm-visible-mark ((,class (:foreground ,bg1 :background ,bg3))))
-   `(helm-candidate-number ((,class (:foreground ,bg1 :background ,fg1))))
-   `(helm-separator ((,class (:foreground ,type :background ,bg1))))
-   `(helm-time-zone-current ((,class (:foreground ,builtin :background ,bg1))))
-   `(helm-time-zone-home ((,class (:foreground ,type :background ,bg1))))
-   `(helm-buffer-not-saved ((,class (:foreground ,type :background ,bg1))))
-   `(helm-buffer-process ((,class (:foreground ,builtin :background ,bg1))))
-   `(helm-buffer-saved-out ((,class (:foreground ,fg1 :background ,bg1))))
-   `(helm-buffer-size ((,class (:foreground ,fg1 :background ,bg1))))
-   `(helm-ff-directory ((,class (:foreground ,func :background ,bg1 :weight bold))))
-   `(helm-ff-file ((,class (:foreground ,fg1 :background ,bg1 :weight normal))))
-   `(helm-ff-executable ((,class (:foreground ,var :background ,bg1 :weight normal))))
-   `(helm-ff-invalid-symlink ((,class (:foreground ,warning2 :background ,bg1 :weight bold))))
-   `(helm-ff-symlink ((,class (:foreground ,keyword :background ,bg1 :weight bold))))
-   `(helm-ff-prefix ((,class (:foreground ,bg1 :background ,keyword :weight normal))))
-   `(helm-grep-cmd-line ((,class (:foreground ,fg1 :background ,bg1))))
-   `(helm-grep-file ((,class (:foreground ,fg1 :background ,bg1))))
-   `(helm-grep-finish ((,class (:foreground ,fg2 :background ,bg1))))
-   `(helm-grep-lineno ((,class (:foreground ,fg1 :background ,bg1))))
-   `(helm-grep-match ((,class (:foreground ,unspec :background ,unspec :inherit helm-match))))
-   `(helm-grep-running ((,class (:foreground ,func :background ,bg1))))
-   `(helm-moccur-buffer ((,class (:foreground ,func :background ,bg1))))
-   `(helm-source-go-package-godoc-description ((,class (:foreground ,str))))
-   `(helm-bookmark-w3m ((,class (:foreground ,type))))
-
-   `(company-echo-common ((,class (:foreground ,bg1 :background ,fg1))))
-   `(company-preview ((,class (:background ,bg1 :foreground ,var))))
-   `(company-preview-common ((,class (:foreground ,bg2 :foreground ,fg3))))
-   `(company-preview-search ((,class (:foreground ,type :background ,bg1))))
-   `(company-scrollbar-bg ((,class (:background ,bg3))))
-   `(company-scrollbar-fg ((,class (:foreground ,keyword))))
-   `(company-tooltip ((,class (:foreground ,fg2 :background ,bg2 :bold t))))
-   `(company-tooltop-annotation ((,class (:foreground ,const))))
-   `(company-tooltip-common ((,class ( :foreground ,fg3))))
-   `(company-tooltip-common-selection ((,class (:foreground ,str))))
-   `(company-tooltip-mouse ((,class (:inherit highlight))))
-   `(company-tooltip-selection ((,class (:background ,bg3 :foreground ,fg3))))
-   `(company-template-field ((,class (:inherit region))))
-
-   `(web-mode-builtin-face ((,class (:inherit ,font-lock-builtin-face))))
-   `(web-mode-comment-face ((,class (:inherit ,font-lock-comment-face))))
-   `(web-mode-constant-face ((,class (:inherit ,font-lock-constant-face))))
-   `(web-mode-keyword-face ((,class (:foreground ,keyword))))
-   `(web-mode-doctype-face ((,class (:inherit ,font-lock-comment-face))))
-   `(web-mode-function-name-face ((,class (:inherit ,font-lock-function-name-face))))
-   `(web-mode-type-face ((,class (:inherit ,font-lock-type-face))))
    `(web-mode-html-attr-name-face ((,class (:foreground ,func))))
-   `(web-mode-warning-face ((,class (:inherit ,font-lock-warning-face))))
-   `(web-mode-html-tag-face ((,class (:foreground ,builtin))))
-
-   `(jde-java-font-lock-package-face ((t (:foreground ,var))))
-   `(jde-java-font-lock-public-face ((t (:foreground ,keyword))))
-   `(jde-java-font-lock-private-face ((t (:foreground ,keyword))))
-   `(jde-java-font-lock-constant-face ((t (:foreground ,const))))
-   `(jde-java-font-lock-modifier-face ((t (:foreground ,fg2))))
-   `(jde-jave-font-lock-protected-face ((t (:foreground ,keyword))))
-   `(jde-java-font-lock-number-face ((t (:foreground ,var))))
-   `(yas-field-highlight-face ((t (:background ,selection)))))
-
-  ;; Legacy
-   (if (< emacs-major-version 22)
-       (custom-theme-set-faces
-        'black
-        `(show-paren-match-face ((,class (:background ,warning))))) ;; obsoleted in 22.1, removed 2016
-     (custom-theme-set-faces
-      'black
-      `(show-paren-match ((,class (:foreground ,bg1 :background ,str))))
-      `(show-paren-mismatch ((,class (:foreground ,bg1 :background ,warning))))))
-   ;; emacs >= 26.1
-   (when (>= emacs-major-version 26)
-     (custom-theme-set-faces
-      'black
-      `(line-number ((t (:inherit fringe))))
-      `(line-number-current-line ((t (:inherit fringe :foreground ,fg6 :weight bold))))))
-
-  ;; emacs >= 27.1
-  (when (>= emacs-major-version 27)
-    (custom-theme-set-faces
-     'black
-     `(tab-line              ((,class (:background ,bg2 :foreground ,fg4))))
-     `(tab-line-tab          ((,class (:inherit tab-line))))
-     `(tab-line-tab-inactive ((,class (:background ,bg2 :foreground ,fg4))))
-     `(tab-line-tab-current  ((,class (:background ,bg1 :foreground ,fg1))))
-     `(tab-line-highlight    ((,class (:background ,bg1 :foreground ,fg2))))))
- (when (>= emacs-major-version 28)
-    (custom-theme-set-faces
-     'black
-     `(line-number ((t (:inherit fringe))))
-     `(line-number-current-line ((t (:inherit fringe :foreground ,fg6 :weight bold))))))
-;; emacs >= 27.1
-(when (>= emacs-major-version 27)
-  (custom-theme-set-faces
-   'black
-   `(tab-line              ((,class (:background ,bg2 :foreground ,fg4))))
-   `(tab-line-tab          ((,class (:inherit tab-line))))
-   `(tab-line-tab-inactive ((,class (:background ,bg2 :foreground ,fg4))))
-   `(tab-line-tab-current  ((,class (:background ,bg1 :foreground ,fg1))))
-   `(tab-line-highlight    ((,class (:background ,bg1 :foreground ,fg2))))))
- (when (>= emacs-major-version 28)
-    (custom-theme-set-faces
-     'black
-     `(tab-line-tab-modified ((,class (:foreground ,warning2 :weight bold))))))
-  (when (boundp 'font-lock-regexp-face)
-    (custom-theme-set-faces
-    'black
-    `(font-lock-regexp-face ((,class (:inherit font-lock-string-face :underline t)))))))
+   `(web-mode-html-tag-face ((,class (:foreground ,builtin))))))
 
 ;;;###autoload
 (when load-file-name

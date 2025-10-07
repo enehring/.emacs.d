@@ -83,7 +83,7 @@
    `(line-number ((t (:inherit fringe))))
    `(line-number-current-line ((t (:inherit fringe :foreground ,fg6 :weight bold))))
 
-   `(mode-line ((,class (:box (:line-width 1 :color nil) :bold t :foreground ,fg4 :background ,bg2))))
+   `(mode-line ((,class (:box (:line-width 1 :color ,fg4) :bold t :foreground ,fg4 :background ,bg2))))
    `(mode-line-inactive ((,class (:box
 				  (:line-width 1 :color nil :style pressed-button)
 				  :foreground ,fg4 :background ,bg1 :weight normal))))

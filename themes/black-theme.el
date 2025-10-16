@@ -6,7 +6,7 @@
 
 ;; Author: Evan Nehring
 ;; Version: 0.1
-;; Package-Requires: ((emacs "24.1"))
+;; Package-Requires: ((emacs "30.2"))
 ;; Created with ThemeCreator, https://github.com/mswift42/themecreator.
 
 ;; This program is free software: you can redistribute it and/or modify
@@ -88,7 +88,7 @@
 
    `(mode-line ((,class (:box (:line-width 1 :color ,fg4) :foreground ,fg1 :background ,bg2))))
    `(mode-line-inactive ((,class
-			  (:box (:line-width 1 :color nil)
+			  (:box (:line-width 1 :color ,fg4)
 				:foreground ,fg4
 				:background ,bg1
 				:weight normal))))

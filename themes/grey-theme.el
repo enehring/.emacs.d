@@ -1,6 +1,6 @@
 ;; -*- lexical-binding: t; -*-
 
-;;; edn-theme.el --- Theme
+;;; grey-theme.el --- Theme
 
 ;; Copyright (C) 2025 , Evan Nehring
 
@@ -25,35 +25,35 @@
 ;; This file is not part of Emacs.
 
 ;;; Commentary:
-;;; edn theme created by Evan Nehring in 2025
+;;; grey theme created by Evan Nehring in 2025
 
 ;;; Code:
 
-(deftheme edn)
+(deftheme grey)
 (let ((class '((class color) (min-colors 89)))
       (fg1 "#000000")
       (fg2 "#141414")
       (fg3 "#292929")
       (fg4 "#3d3d3d")
       (fg6 "#000000")
-      (bg1 "#ebd5b3")
-      (bg2 "#d8c4a5")
-      (bg3 "#c5b396")
-      (bg4 "#b3a288")
+      (bg1 "#dedede")
+      (bg2 "#cccccc")
+      (bg3 "#bababa")
+      (bg4 "#a9a9a9")
       (builtin "#000000")
       (keyword "#000000")
       (const   "#000000")
-      (comment "#555555")
+      (comment "#5c5c5c")
       (func    "#000000")
-      (str     "#801d00")
+      (str     "#05670c")
       (type    "#000000")
       (var     "#000000")
-      (selection "#b4bcff")
+      (selection "#9ec9fc")
       (unspec   'unspecified))
   (custom-theme-set-faces
-   'edn
+   'grey
    `(default ((,class (:background ,bg1 :foreground ,fg1))))
-   
+
    `(font-lock-builtin-face ((,class (:foreground ,builtin))))
    `(font-lock-comment-face ((,class (:foreground ,comment))))
    `(font-lock-negation-char-face ((,class (:foreground ,const))))
@@ -125,4 +125,4 @@
 ;; no-byte-compile: t
 ;; End:
 
-;;; edn-theme.el ends here
+;;; grey-theme.el ends here

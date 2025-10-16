@@ -57,7 +57,6 @@
    `(font-lock-builtin-face ((,class (:foreground ,builtin))))
    `(font-lock-comment-face ((,class (:foreground ,comment))))
    `(font-lock-negation-char-face ((,class (:foreground ,const))))
-   `(font-lock-reference-face ((,class (:foreground ,const))))
    `(font-lock-constant-face ((,class (:foreground ,const))))
    `(font-lock-doc-face ((,class (:foreground ,comment))))
    `(font-lock-function-name-face ((,class (:foreground ,func ))))
@@ -75,10 +74,10 @@
    `(fringe ((,class (:background ,bg2 :foreground ,fg4))))
    `(cursor ((,class (:background ,fg4))))
    `(vertical-border ((,class (:foreground ,fg3))))
-   `(minibuffer-prompt ((,class (:inherit font-lock-keyword-face))))
+   `(minibuffer-prompt ((,class (:bold t :foreground ,keyword))))
 
    `(show-paren-match ((,class (:foreground ,bg1 :background ,fg4))))
-   `(show-paren-mismatch ((,class (:foreground ,bg1 :background ,selection))))
+   `(show-paren-mismatch ((,class (:inherit error))))
 
    `(isearch ((,class (:bold t :foreground ,keyword :background ,selection))))
    `(lazy-highlight ((,class (:foreground ,fg2 :background ,bg3))))
@@ -86,7 +85,7 @@
    `(line-number ((t (:inherit fringe))))
    `(line-number-current-line ((t (:inherit fringe :foreground ,fg6 :weight bold))))
 
-   `(mode-line ((,class (:box (:line-width 1 :color ,fg4) :foreground ,fg1 :background ,bg2))))
+   `(mode-line ((,class (:box (:line-width 1 :color ,fg1) :foreground ,fg1 :background ,bg2))))
    `(mode-line-inactive ((,class
 			  (:box (:line-width 1 :color ,fg4)
 				:foreground ,fg4

@@ -103,7 +103,7 @@
   (if (not (display-graphic-p))
       (progn
 	(load-theme 'white :no-confirm))
-    
+
     ;; not saving any space on Mac by hiding the menu bar
     (customize-set-variable 'menu-bar-mode t)
     (customize-set-variable 'comint-process-echoes t)

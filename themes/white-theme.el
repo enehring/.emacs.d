@@ -53,7 +53,7 @@
   (custom-theme-set-faces
    'white
    `(default ((,class (:background ,bg1 :foreground ,fg1))))
-   
+
    `(font-lock-builtin-face ((,class (:foreground ,builtin))))
    `(font-lock-comment-face ((,class (:foreground ,comment))))
    `(font-lock-negation-char-face ((,class (:foreground ,const))))
@@ -94,6 +94,10 @@
    `(mode-line-buffer-id ((,class (:bold t :foreground ,func :background ,unspec))))
    `(mode-line-highlight ((,class (:foreground ,keyword :weight bold))))
    `(mode-line-emphasis ((,class (:foreground ,fg1))))
+
+   `(whitespace-tab ((,class (:foreground ,fg2 :background ,bg2))))
+   `(whitespace-space ((,class (:foreground, fg2 :background ,bg2))))
+   `(whitespace-line ((,class (:foreground, fg2 :background ,bg2))))
 
    `(elisp-shorthand-font-lock-face ((,class (:inherit font-lock-keyword-face))))
 

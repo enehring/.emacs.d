@@ -53,7 +53,7 @@
   (custom-theme-set-faces
    'black
    `(default ((,class (:background ,bg1 :foreground ,fg1))))
-   
+
    `(font-lock-builtin-face ((,class (:foreground ,builtin))))
    `(font-lock-comment-face ((,class (:foreground ,comment))))
    `(font-lock-negation-char-face ((,class (:foreground ,const))))
@@ -120,7 +120,7 @@
 ;;;###autoload
 (when load-file-name
   (add-to-list 'custom-theme-load-path
-               (file-name-as-directory (file-name-directory load-file-name))))
+	       (file-name-as-directory (file-name-directory load-file-name))))
 
 (provide-theme 'black)
 

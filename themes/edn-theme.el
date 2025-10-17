@@ -45,7 +45,7 @@
       (const   "#000000")
       (comment "#555555")
       (func    "#000000")
-      (str     "#801d00")
+      (str     "#61177c")
       (type    "#000000")
       (var     "#000000")
       (selection "#b4bcff")

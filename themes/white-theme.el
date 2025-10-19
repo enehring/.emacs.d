@@ -95,9 +95,10 @@
    `(mode-line-highlight ((,class (:foreground ,keyword :weight bold))))
    `(mode-line-emphasis ((,class (:foreground ,fg1))))
 
-   `(whitespace-tab ((,class (:foreground ,fg2 :background ,bg2))))
-   `(whitespace-space ((,class (:foreground, fg2 :background ,bg2))))
-   `(whitespace-line ((,class (:foreground, fg2 :background ,bg2))))
+   `(whitespace-tab ((,class (:foreground ,bg4 :background ,bg1))))
+   `(whitespace-space ((,class (:foreground ,bg4 :background ,bg1))))
+   `(whitespace-newline ((,class (:foreground ,bg4 :background ,bg1))))
+   `(whitespace-line ((,class (:foreground ,fg1 :background ,bg2))))
 
    `(elisp-shorthand-font-lock-face ((,class (:inherit font-lock-keyword-face))))
 

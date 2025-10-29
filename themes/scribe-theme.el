@@ -1,6 +1,6 @@
 ;; -*- lexical-binding: t; -*-
 
-;;; edn-theme.el --- Theme
+;;; scribe-theme.el --- Theme
 
 ;; Copyright (C) 2025 , Evan Nehring
 
@@ -25,11 +25,11 @@
 ;; This file is not part of Emacs.
 
 ;;; Commentary:
-;;; edn theme created by Evan Nehring in 2025
+;;; scribe theme created by Evan Nehring in 2025
 
 ;;; Code:
 
-(deftheme edn)
+(deftheme scribe)
 (let ((class '((class color) (min-colors 89)))
       (fg1 "#000000")
       (fg2 "#141414")
@@ -51,7 +51,7 @@
       (selection "#b4bcff")
       (unspec   'unspecified))
   (custom-theme-set-faces
-   'edn
+   'scribe
    `(default ((,class (:background ,bg1 :foreground ,fg1))))
 
    `(font-lock-builtin-face ((,class (:foreground ,builtin))))
@@ -132,10 +132,10 @@
   (add-to-list 'custom-theme-load-path
 	       (file-name-as-directory (file-name-directory load-file-name))))
 
-(provide-theme 'edn)
+(provide-theme 'scribe)
 
 ;; Local Variables:
 ;; no-byte-compile: t
 ;; End:
 
-;;; edn-theme.el ends here
+;;; scribe-theme.el ends here

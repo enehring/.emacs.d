@@ -97,7 +97,7 @@
 (cond
  ((string-equal system-type "windows-nt")
   ;;; Windows-specific Configuration
-  (load-theme 'edn :no-confirm))
+  (load-theme 'scribe :no-confirm))
  ((string-equal system-type "darwin")
   ;;; MacOS-specific Configuration
   (if (not (display-graphic-p))
@@ -107,10 +107,10 @@
     ;; not saving any space on Mac by hiding the menu bar
     (customize-set-variable 'menu-bar-mode t)
     (customize-set-variable 'comint-process-echoes t)
-    (load-theme 'edn :no-confirm)
+    (load-theme 'scribe :no-confirm)
     (global-set-key (kbd "<S-s-up>") 'toggle-frame-maximized)))
  ((string-equal system-type "gnu/linux")
   ;;; Linux-specific Configuration
   (if (display-graphic-p)
-      (load-theme 'edn :noconfirm)
+      (load-theme 'scribe :noconfirm)
     (load-theme 'black :noconfirm))))

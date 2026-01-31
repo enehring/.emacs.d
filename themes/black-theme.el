@@ -54,7 +54,7 @@
    'black
    `(default ((,class (:background ,bg1 :foreground ,fg1))))
 
-   `(font-lock-builtin-face ((,class (:foreground ,builtin))))
+   `(font-lock-builtin-face ((,class (:bold t :foreground ,builtin))))
    `(font-lock-comment-face ((,class (:foreground ,comment))))
    `(font-lock-negation-char-face ((,class (:foreground ,const))))
    `(font-lock-constant-face ((,class (:foreground ,const))))
@@ -125,7 +125,10 @@
    `(magit-reflog-other ((,class (:foreground ,fg1))))
 
    `(web-mode-html-attr-name-face ((,class (:foreground ,func))))
-   `(web-mode-html-tag-face ((,class (:foreground ,builtin))))))
+   `(web-mode-html-tag-face ((,class (:foreground ,builtin))))
+   `(web-mode-html-tag-bracket-face ((,class (:foreground ,keyword))))
+   `(web-mode-symbol-face ((,class (:foreground ,var))))
+   `(web-mode-doctype-face ((, class (:foreground ,keyword :weight bold))))))
 
 ;;;###autoload
 (when load-file-name

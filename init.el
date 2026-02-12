@@ -16,28 +16,28 @@
 (customize-set-variable 'auto-save-file-name-transforms
 			'(("*", temporary-file-directory t)))
 (customize-set-variable 'make-backup-files nil)
-(customize-set-variable 'c-default-style
-			'((c-mode . "linux")
-			  (java-mode . "java")
-			  (awk-mode . "awk")
-			  (other . "gnu")))
 (customize-set-variable 'custom-theme-directory
 			(concat user-emacs-directory "themes/"))
 (customize-set-variable 'global-auto-revert-mode t)
 (customize-set-variable 'recentf-mode t)
 (customize-set-variable 'initial-buffer-choice 'recentf-open-files)
 (customize-set-variable 'help-window-select t)
+(customize-set-variable 'winner-mode t)
 
+(put 'dired-find-alternate-file 'disabled nil)
 
 ;;; Font
-(add-to-list 'default-frame-alist
-	     '(font . "Jetbrains Mono-10"))
+(add-to-list 'default-frame-alist '(font . "Jetbrains Mono-10"))
 
 ;;; Built-in Mode Configuration
 
 ;;; c-mode
+(c-add-style "edn" '("linux" (c-offset-alist (case-label . +))))
+(add-to-list 'c-default-style '(c-mode . "edn"))
 (add-hook 'c-mode-hook
 	  (lambda ()
+	    (setq whitespace-line-column 78)
+	    (whitespace-mode 1)
 	    (electric-pair-local-mode 1)))
 
 ;;; csharp-mode
@@ -93,13 +93,13 @@
 (customize-set-variable 'web-mode-extra-keywords
 			'(("razor" . ("model" "using"))))
 
-
+;;; OS-specific Settings
 (cond
  ((string-equal system-type "windows-nt")
-  ;;; Windows-specific Configuration
+  ;; Windows
   (load-theme 'scribe :no-confirm))
  ((string-equal system-type "darwin")
-  ;;; MacOS-specific Configuration
+  ;; MacOS
   (if (not (display-graphic-p))
       (progn
 	(load-theme 'white :no-confirm))
@@ -110,7 +110,7 @@
     (load-theme 'scribe :no-confirm)
     (global-set-key (kbd "<S-s-up>") 'toggle-frame-maximized)))
  ((string-equal system-type "gnu/linux")
-  ;;; Linux-specific Configuration
+  ;; Linux
   (if (display-graphic-p)
       (load-theme 'scribe :noconfirm)
     (load-theme 'black :noconfirm))))

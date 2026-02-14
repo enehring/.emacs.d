@@ -23,6 +23,7 @@
 (customize-set-variable 'initial-buffer-choice 'recentf-open-files)
 (customize-set-variable 'help-window-select t)
 (customize-set-variable 'winner-mode t)
+(customize-set-variable 'blink-cursor-blinks 0)
 
 (put 'dired-find-alternate-file 'disabled nil)
 

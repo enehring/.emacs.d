@@ -33,7 +33,7 @@
 ;;; Built-in Mode Configuration
 
 ;;; c-mode
-(c-add-style "edn" '("linux" (c-offset-alist (case-label . +))))
+(c-add-style "edn" '("linux" (c-offsets-alist (case-label . +))))
 (add-to-list 'c-default-style '(c-mode . "edn"))
 (add-hook 'c-mode-hook
 	  (lambda ()

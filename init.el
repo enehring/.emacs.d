@@ -37,7 +37,7 @@
 (add-to-list 'c-default-style '(c-mode . "edn"))
 (add-hook 'c-mode-hook
 	  (lambda ()
-	    (setq whitespace-line-column 78)
+	    (setq whitespace-line-column 120)
 	    (whitespace-mode 1)
 	    (electric-pair-local-mode 1)))
 

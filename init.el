@@ -38,7 +38,6 @@
 (add-hook 'c-mode-hook
 	  (lambda ()
 	    (setq whitespace-line-column 128)
-	    (whitespace-mode 1)
 	    (electric-pair-local-mode 1)))
 
 ;;; csharp-mode
@@ -94,6 +93,9 @@
 (customize-set-variable 'web-mode-extra-keywords
 			'(("razor" . ("model" "using"))))
 
+;; Keybindings
+(global-set-key (kbd "C-c w") 'whitespace-mode)
+
 ;;; OS-specific Settings
 (cond
  ((string-equal system-type "windows-nt")
@@ -115,3 +117,6 @@
   (if (display-graphic-p)
       (load-theme 'scribe :noconfirm)
     (load-theme 'black :noconfirm))))
+
+;; Load any local config overrides if they exist
+(load (concat user-emacs-directory "init.local.el") 1)

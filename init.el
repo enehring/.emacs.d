@@ -33,28 +33,18 @@
 ;;; Built-in Mode Configuration
 
 ;;; c-mode
+(defun c-mode-hook-mine ()
+  (setq whitespace-line-column 128)
+  (electric-pair-local-mode 1))
+(add-hook 'c-mode-hook 'c-mode-hook-mine)
 (c-add-style "edn" '("linux" (c-offsets-alist (case-label . +))))
 (add-to-list 'c-default-style '(c-mode . "edn"))
-(add-hook 'c-mode-hook
-	  (lambda ()
-	    (setq whitespace-line-column 128)
-	    (electric-pair-local-mode 1)))
 
 ;;; csharp-mode
-(add-hook 'csharp-mode-hook
-	  (lambda ()
-	    (setq indent-tabs-mode nil)
-	    (electric-pair-local-mode 1)))
-
-;;; eshell
-(add-hook 'eshell-mode-hook
-	  (lambda ()
-	    ;; keybinding to clear the screen
-	    (local-set-key (kbd "C-c l")
-			   (lambda ()
-			     (interactive)
-			     (eshell/clear 1)
-			     (eshell-emit-prompt)))))
+(defun csharp-mode-hook-mine ()
+  (setq indent-tabs-mode nil)
+  (electric-pair-local-mode 1))
+(add-hook 'csharp-mode-hook 'csharp-mode-hook-mine)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.

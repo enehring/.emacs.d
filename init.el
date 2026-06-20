@@ -1,11 +1,10 @@
 ;; -*- lexical-binding: t; -*-
 
-;; for personal use only
+;; For personal use only
 
 ;;; Base Emacs configuration (does not depend on any packages or OS)
 
-;; Prefer the use of customize-set-variable for setting defaults to make
-;; changes visible to Custom.
+;; Prefer the use of customize-set-variable so changes are visible to Custom.
 (customize-set-variable 'menu-bar-mode nil)
 (customize-set-variable 'tool-bar-mode nil)
 (customize-set-variable 'scroll-bar-mode nil)
@@ -14,23 +13,28 @@
 (customize-set-variable 'save-place-mode t)
 (customize-set-variable 'global-auto-revert-non-file-buffers t)
 (customize-set-variable 'auto-save-file-name-transforms
-			'(("*", temporary-file-directory t)))
+                        '(("*", temporary-file-directory t)))
 (customize-set-variable 'make-backup-files nil)
 (customize-set-variable 'custom-theme-directory
-			(concat user-emacs-directory "themes/"))
+                        (concat user-emacs-directory "themes/"))
 (customize-set-variable 'global-auto-revert-mode t)
 (customize-set-variable 'recentf-mode t)
 (customize-set-variable 'initial-buffer-choice 'recentf-open-files)
 (customize-set-variable 'help-window-select t)
 (customize-set-variable 'winner-mode t)
 (customize-set-variable 'blink-cursor-blinks 0)
-
+(customize-set-variable 'comint-prompt-read-only t)
 (put 'dired-find-alternate-file 'disabled nil)
 
 ;;; Font
 (add-to-list 'default-frame-alist '(font . "Jetbrains Mono-10"))
 
 ;;; Built-in Mode Configuration
+
+;;; emacs-lisp-mode
+(defun emacs-lisp-mode-hook-mine ()
+  (setq indent-tabs-mode nil))
+(add-hook 'emacs-lisp-mode-hook 'emacs-lisp-mode-hook-mine)
 
 ;;; c-mode
 (defun c-mode-hook-mine ()
@@ -80,9 +84,9 @@
 (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.cshtml\\'" . web-mode))
 (customize-set-variable 'web-mode-engines-alist
-			'(("razor" . "\\.cshtml\\'")))
+                        '(("razor" . "\\.cshtml\\'")))
 (customize-set-variable 'web-mode-extra-keywords
-			'(("razor" . ("model" "using"))))
+                        '(("razor" . ("model" "using"))))
 
 ;; Keybindings
 (global-set-key (kbd "C-c w") 'whitespace-mode)
@@ -96,7 +100,7 @@
   ;; MacOS
   (if (not (display-graphic-p))
       (progn
-	(load-theme 'white :no-confirm))
+        (load-theme 'white :no-confirm))
 
     ;; not saving any space on Mac by hiding the menu bar
     (customize-set-variable 'menu-bar-mode t)

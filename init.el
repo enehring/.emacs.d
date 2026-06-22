@@ -25,6 +25,7 @@
 (customize-set-variable 'blink-cursor-blinks 0)
 (customize-set-variable 'comint-prompt-read-only t)
 (put 'dired-find-alternate-file 'disabled nil)
+(customize-set-variable 'whitespace-line-column 128)
 
 ;;; Font
 (add-to-list 'default-frame-alist '(font . "Jetbrains Mono-10"))
@@ -38,7 +39,6 @@
 
 ;;; c-mode
 (defun c-mode-hook-mine ()
-  (setq whitespace-line-column 128)
   (electric-pair-local-mode 1))
 (add-hook 'c-mode-hook 'c-mode-hook-mine)
 (c-add-style "edn" '("linux" (c-offsets-alist (case-label . +))))
